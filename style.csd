@@ -1,57 +1,129 @@
-body {
-  background: radial-gradient(circle, #ff758c, #ff7eb3);
-  font-family: 'Segoe UI', sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-.box {
-  background: #fff;
-  padding: 25px;
-  border-radius: 18px;
-  width: 320px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+body{
+  height:100vh;
+  background:#000;
+  overflow:hidden;
+  cursor: none;
 }
 
-h1 {
-  color: #ff3d68;
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#000;
+  color:white;
+  font-size:22px;
+  z-index:999;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 30px;
-  background: #ff3d68;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,#ff0080,#7928ca,#2afadf);
+  animation:bgMove 10s infinite alternate;
+  filter:blur(40px);
 }
 
-button:hover {
-  background: #ff1f55;
+@keyframes bgMove{
+  0%{transform:scale(1)}
+  100%{transform:scale(1.2)}
 }
 
-.hide {
-  display: none;
-  margin-top: 20px;
-  animation: pop 1s ease;
+/* GLASS UI */
+.glass{
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.2);
 }
 
-.heart {
-  font-size: 40px;
-  animation: beat 1s infinite;
+/* APP */
+.app{
+  position:relative;
+  z-index:5;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-@keyframes pop {
-  0% {transform: scale(0); opacity: 0;}
-  100% {transform: scale(1); opacity: 1;}
+.phone{
+  width:350px;
+  height:580px;
+  border-radius:30px;
+  box-shadow:0 0 60px rgba(255,0,150,0.5);
+  color:white;
+  overflow:hidden;
 }
 
-@keyframes beat {
-  0%, 100% {transform: scale(1);}
-  50% {transform: scale(1.3);}
+/* TOP BAR */
+.top{
+  padding:15px;
+  background:rgba(0,0,0,0.4);
+  text-align:center;
+}
+
+.top small{
+  display:block;
+  font-size:11px;
+  opacity:.7;
+}
+
+/* CHAT */
+.chat{
+  padding:15px;
+  height:420px;
+  overflow:hidden;
+}
+
+.msg{
+  background:rgba(255,255,255,0.25);
+  padding:10px 14px;
+  border-radius:15px;
+  margin-bottom:10px;
+  width:max-content;
+  max-width:85%;
+  animation:pop .4s ease;
+}
+
+.me{
+  margin-left:auto;
+  background:rgba(0,255,150,0.35);
+}
+
+/* PROPOSAL */
+.proposal,.final{
+  padding:20px;
+  text-align:center;
+}
+
+button{
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff0080,#ff8c00);
+  color:white;
+  font-size:16px;
+  box-shadow:0 0 20px rgba(255,0,150,0.6);
+}
+
+.hidden{display:none}
+
+@keyframes pop{
+  from{opacity:0;transform:scale(.7)}
+  to{opacity:1;transform:scale(1)}
+}
+
+canvas{
+  position:fixed;
+  inset:0;
 }
